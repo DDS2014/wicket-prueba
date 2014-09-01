@@ -12,10 +12,11 @@ class HomePage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
 	new() {
-		val label = new Label("version", application.frameworkSettings.version)
-		
-		this.addChild(label);
 
+		this.addChild(new Label("prueba", "esto es un texto de prueba"))
+		
+
+		
 		// TODO Add your page's components here
     }
 }
