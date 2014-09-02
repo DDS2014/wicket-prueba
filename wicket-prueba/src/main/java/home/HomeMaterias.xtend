@@ -26,4 +26,25 @@ public class HomeMaterias
 		
 		this.materias.add(materia)		
 	}
+	
+	def void addMateria(Materia materia)
+	{
+		this.materias.add(materia)
+	}
+	
+	def Materia addMateriaDefault(String nombre)
+	//crea una materia por default y la agrega a la home, con el único dato del nombre
+	//devuelve una referencia a la materia recién creada
+	{
+		var materia = new Materia()
+		materia.nombre = nombre;
+		materia.anio_cursada = 0;
+		materia.final_aprobado = false;
+		materia.profesor = "nadie";
+		materia.ubicacion = "?";
+		materia.notas = new ArrayList();
+		this.addMateria(materia);
+		return materia;
+	}
+	
 }

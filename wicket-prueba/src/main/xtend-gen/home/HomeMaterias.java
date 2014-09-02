@@ -23,4 +23,21 @@ public class HomeMaterias {
     materia.setNotas(_arrayList);
     this.materias.add(materia);
   }
+  
+  public void addMateria(final Materia materia) {
+    this.materias.add(materia);
+  }
+  
+  public Materia addMateriaDefault(final String nombre) {
+    Materia materia = new Materia();
+    materia.setNombre(nombre);
+    materia.setAnio_cursada(0);
+    materia.setFinal_aprobado(false);
+    materia.setProfesor("nadie");
+    materia.setUbicacion("?");
+    ArrayList<Nota> _arrayList = new ArrayList<Nota>();
+    materia.setNotas(_arrayList);
+    this.addMateria(materia);
+    return materia;
+  }
 }
