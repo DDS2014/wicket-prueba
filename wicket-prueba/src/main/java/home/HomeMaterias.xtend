@@ -6,12 +6,12 @@ import domain.Materia
 
 public class HomeMaterias 
 {
-	ArrayList<Materia> materias;
+	static ArrayList<Materia> materias; //todo verificar si esto significa que todas las instancias de HomeMaterias acceden a la misma ArrayList
 	
 	
 	def getMaterias()
 	{
-		return this.materias;
+		return materias;
 	}
 	
 	def void addMateria(String nombre, int anio_cursada, String profesor, boolean final_aprobado, String ubicacion)
@@ -24,12 +24,12 @@ public class HomeMaterias
 		materia.ubicacion = ubicacion
 		materia.notas = new ArrayList()	
 		
-		this.materias.add(materia)		
+		materias.add(materia)		
 	}
 	
 	def void addMateria(Materia materia)
 	{
-		this.materias.add(materia)
+		materias.add(materia)
 	}
 	
 	def Materia addMateriaDefault(String nombre)
@@ -43,7 +43,7 @@ public class HomeMaterias
 		materia.profesor = "nadie";
 		materia.ubicacion = "?";
 		materia.notas = new ArrayList();
-		this.addMateria(materia);
+		addMateria(materia);
 		return materia;
 	}
 	

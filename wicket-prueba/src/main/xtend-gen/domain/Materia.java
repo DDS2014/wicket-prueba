@@ -2,12 +2,9 @@ package domain;
 
 import domain.Nota;
 import java.util.ArrayList;
-import org.uqbar.commons.model.Entity;
-import org.uqbar.commons.utils.Observable;
 
-@Observable
 @SuppressWarnings("all")
-public class Materia extends Entity {
+public class Materia {
   public Materia() {
     ArrayList<Nota> _arrayList = new ArrayList<Nota>();
     this.setNotas(_arrayList);
@@ -75,5 +72,10 @@ public class Materia extends Entity {
   
   public String toString() {
     return this.getNombre();
+  }
+  
+  public boolean agregarNota(final Nota nota) {
+    ArrayList<Nota> _notas = this.getNotas();
+    return _notas.add(nota);
   }
 }

@@ -1,12 +1,12 @@
 package domain
 
 
-import org.uqbar.commons.utils.Observable
-import java.util.ArrayList
-import org.uqbar.commons.model.Entity
 
-@Observable
-class Materia extends Entity
+import java.util.ArrayList
+
+
+class Materia
+
 {
 	new()
 	{
@@ -23,6 +23,11 @@ class Materia extends Entity
 	override toString()
 	{
 		return this.nombre
+	}
+	
+	def agregarNota(Nota nota)
+	{
+		this.notas.add(nota)
 	}
 	
 	

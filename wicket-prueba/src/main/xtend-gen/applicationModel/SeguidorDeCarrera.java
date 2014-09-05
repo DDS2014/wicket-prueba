@@ -152,6 +152,11 @@ public class SeguidorDeCarrera {
     this.cargarDatosMateria();
   }
   
+  public void agregarNota(final Nota nota) {
+    Materia _materiaSeleccionada = this.getMateriaSeleccionada();
+    _materiaSeleccionada.agregarNota(nota);
+  }
+  
   public void removerNotaSeleccionada() {
     Materia _materiaSeleccionada = this.getMateriaSeleccionada();
     ArrayList<Nota> _notas = _materiaSeleccionada.getNotas();

@@ -1,12 +1,12 @@
 package applicationModel
 
 
-import home.HomeMaterias //por que no me deja importarlo static?????
+import home.HomeMaterias //todo por que no me deja importarlo static?????
 import domain.Materia
 import domain.Nota
 import java.util.ArrayList
 
-//TODO arreglar esta clase
+
 class SeguidorDeCarrera 
 {
 	HomeMaterias homeMaterias;
@@ -68,6 +68,11 @@ class SeguidorDeCarrera
 //		materiasDisponibles = new ArrayList<Materia>
 //		
 //	}
+
+	def void agregarNota(Nota nota)
+	{
+		materiaSeleccionada.agregarNota(nota);
+	} //la ventana de nota debería bindear con una nota nueva y llamar a este method cuando se le da aceptar
 
 	def void removerNotaSeleccionada() 
 	{

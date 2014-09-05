@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class HomeMaterias {
-  private ArrayList<Materia> materias;
+  private static ArrayList<Materia> materias;
   
   public ArrayList<Materia> getMaterias() {
-    return this.materias;
+    return HomeMaterias.materias;
   }
   
   public void addMateria(final String nombre, final int anio_cursada, final String profesor, final boolean final_aprobado, final String ubicacion) {
@@ -21,11 +21,11 @@ public class HomeMaterias {
     materia.setUbicacion(ubicacion);
     ArrayList<Nota> _arrayList = new ArrayList<Nota>();
     materia.setNotas(_arrayList);
-    this.materias.add(materia);
+    HomeMaterias.materias.add(materia);
   }
   
   public void addMateria(final Materia materia) {
-    this.materias.add(materia);
+    HomeMaterias.materias.add(materia);
   }
   
   public Materia addMateriaDefault(final String nombre) {
