@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		<title>Agregar materia</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<!-- Bootstrap --> 
+    	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    	<link href="css/bootstrap-theme.css" rel="stylesheet" media="screen"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<div class="container">
+	        <table>
+	            <tr>
+	                <td>
+	                    <h2>Agregar una materia</h2>
+	                </td>
+	            </tr>
+	        </table>
+	        
+	        <form wicket:id="materiaForm" class="form-horizontal" style="width: 100%">
+		    
+		    
+		    <label>Nombre de la nueva materia: </label>
+		    <input wicket:id="nombre"/>
+		    	<button wicket:id="botonAceptar">Agregar</button>
+			    <button wicket:id="botonVolver" type="submit" class="btn">Volver</button>
+		    </form>
+		</div>
+		
+	</body>
+</html>

@@ -42,8 +42,7 @@ public class SeguidorDeCarrera implements Serializable {
   
   public HomeMaterias getHomeMaterias() {
     ApplicationContext _instance = ApplicationContext.getInstance();
-    HomeMaterias _singleton = _instance.<HomeMaterias>getSingleton(Materia.class);
-    return _singleton;
+    return _instance.<HomeMaterias>getSingleton(Materia.class);
   }
   
   public void refresh() {
@@ -57,5 +56,13 @@ public class SeguidorDeCarrera implements Serializable {
   
   public void seleccionarMateria(final Materia materia) {
     this.setMateriaSeleccionada(materia);
+  }
+  
+  public void crearMateriaDefault(final String nombre) {
+    HomeMaterias _homeMaterias = this.getHomeMaterias();
+    Materia materia = _homeMaterias.createExample();
+    materia.setNombre(nombre);
+    HomeMaterias _homeMaterias_1 = this.getHomeMaterias();
+    _homeMaterias_1.create(materia);
   }
 }

@@ -10,7 +10,7 @@ import org.apache.wicket.markup.html.basic.Label
 import org.uqbar.wicket.xtend.XButton
 import org.apache.wicket.markup.html.form.TextField
 import org.apache.wicket.markup.html.form.CheckBox
-
+import applicationModel.NuevaMateria
 
 /**
  * 
@@ -19,6 +19,7 @@ import org.apache.wicket.markup.html.form.CheckBox
 class HomePage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 	
+	@Property
 	var SeguidorDeCarrera seguidor;
 	
 	new() {
@@ -28,11 +29,25 @@ class HomePage extends WebPage {
 		val Form<SeguidorDeCarrera> materiasForm = new Form<SeguidorDeCarrera>("materiasForm", new CompoundPropertyModel<SeguidorDeCarrera>(this.seguidor))
 		
 		this.agregarGrillaMaterias(materiasForm)
+		this.agregarAccionesMateria(materiasForm)
 		this.agregarEditarMateria(materiasForm)
 		this.agregarFormNotas(materiasForm)
 		
 		this.addChild(materiasForm)
     }
+	
+	def agregarAccionesMateria(Form<SeguidorDeCarrera> parent) 
+	{
+		val botonAgregarMateria = new XButton("nuevaMateria")
+		botonAgregarMateria.onClick = [|agregarMateria()]
+		parent.addChild(botonAgregarMateria)
+	}
+	
+	def agregarMateria() 
+	{
+		responsePage = new AgregarMateriaPage(this, new NuevaMateria(this.seguidor));
+		this.seguidor.refresh()
+	}
 	
 	def agregarFormNotas(Form<SeguidorDeCarrera> parent) {
 		this.agregarAccionesNotas(parent)
