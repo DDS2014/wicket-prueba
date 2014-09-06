@@ -2,7 +2,6 @@ package main
 
 import applicationModel.NuevaMateria
 import applicationModel.SeguidorDeCarrera
-import domain.Materia
 import org.apache.wicket.markup.html.WebPage
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.form.CheckBox
