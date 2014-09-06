@@ -1,34 +1,16 @@
 package domain
 
-
-
 import java.util.ArrayList
+import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.Entity
 
-
-class Materia
+@Observable
+class Materia extends Entity
 
 {
-	new()
-	{
-		this.notas = new ArrayList();
-	}
-	
 	@Property String nombre;
-	@Property int anio_cursada;
+	@Property int anioCursada;
 	@Property String profesor;
-	@Property boolean final_aprobado;
+	@Property Boolean finalAprobado;
 	@Property String ubicacion;
-	@Property ArrayList<Nota> notas;	
-
-	override toString()
-	{
-		return this.nombre
-	}
-	
-	def agregarNota(Nota nota)
-	{
-		this.notas.add(nota)
-	}
-	
-	
 }

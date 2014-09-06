@@ -1,15 +1,11 @@
 package domain;
 
-import domain.Nota;
-import java.util.ArrayList;
+import org.uqbar.commons.model.Entity;
+import org.uqbar.commons.utils.Observable;
 
+@Observable
 @SuppressWarnings("all")
-public class Materia {
-  public Materia() {
-    ArrayList<Nota> _arrayList = new ArrayList<Nota>();
-    this.setNotas(_arrayList);
-  }
-  
+public class Materia extends Entity {
   private String _nombre;
   
   public String getNombre() {
@@ -20,14 +16,14 @@ public class Materia {
     this._nombre = nombre;
   }
   
-  private int _anio_cursada;
+  private int _anioCursada;
   
-  public int getAnio_cursada() {
-    return this._anio_cursada;
+  public int getAnioCursada() {
+    return this._anioCursada;
   }
   
-  public void setAnio_cursada(final int anio_cursada) {
-    this._anio_cursada = anio_cursada;
+  public void setAnioCursada(final int anioCursada) {
+    this._anioCursada = anioCursada;
   }
   
   private String _profesor;
@@ -40,14 +36,14 @@ public class Materia {
     this._profesor = profesor;
   }
   
-  private boolean _final_aprobado;
+  private Boolean _finalAprobado;
   
-  public boolean isFinal_aprobado() {
-    return this._final_aprobado;
+  public Boolean getFinalAprobado() {
+    return this._finalAprobado;
   }
   
-  public void setFinal_aprobado(final boolean final_aprobado) {
-    this._final_aprobado = final_aprobado;
+  public void setFinalAprobado(final Boolean finalAprobado) {
+    this._finalAprobado = finalAprobado;
   }
   
   private String _ubicacion;
@@ -58,24 +54,5 @@ public class Materia {
   
   public void setUbicacion(final String ubicacion) {
     this._ubicacion = ubicacion;
-  }
-  
-  private ArrayList<Nota> _notas;
-  
-  public ArrayList<Nota> getNotas() {
-    return this._notas;
-  }
-  
-  public void setNotas(final ArrayList<Nota> notas) {
-    this._notas = notas;
-  }
-  
-  public String toString() {
-    return this.getNombre();
-  }
-  
-  public boolean agregarNota(final Nota nota) {
-    ArrayList<Nota> _notas = this.getNotas();
-    return _notas.add(nota);
   }
 }

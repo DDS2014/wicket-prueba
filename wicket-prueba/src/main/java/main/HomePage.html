@@ -1,15 +1,133 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
 	<head>
-		<meta charset="utf-8" />
-		<title>Apache Wicket Quickstart</title>
-		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+		<title>Seguidor de Carrera</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<!-- Bootstrap --> 
+    	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    	<link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">  
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	<body>
-		<h3>Seguidor de carrera</h3>
-		<span wicket:id="prueba">asdasdas</span>
-
+		<div class="container">
+	        <table>
+	            <tr>
+	                <td>
+	                    <h2>Seguidor de Carrera</h2>
+	                </td>
+	            </tr>
+	        </table>
+	        
+	        <form wicket:id="materiasForm" class="form-horizontal" style="width: 100%">
+		        <table>
+			        <tr>
+			        	<td width="50%">
+		        			<table class="table table-striped table-bordered table-condensed" style="width: 100%">
+								<thead>
+					           		<tr>
+					               		<th id="main">Nombre</th>
+					               		<th id="main">&nbsp;</th>
+					               	</tr>
+				            	</thead>
+								<tbody>
+					               	<tr wicket:id="materias">
+					                   	<td>
+					                   	    <span wicket:id="nombre">unNombre</span> 
+					               	    </td> 
+					           	        <td>
+					       	            	<div class="btn-group">
+					           	        		<button wicket:id="editar" class="btn-link">Editar</button>
+					           	        	</div>
+					   	                </td> 
+					               	</tr>
+				               	</tbody>
+							</table>
+							<div class="form-actions">
+				                <button class="btn">Nueva Materia</button>
+				            </div>
+			        		
+		       			</td>
+		       			<td valign="top">
+	       					<table style="width: 100%">
+								<tr>
+									<td>
+										<label>Año cursada: </label>
+									</td>
+									<td>
+					            		<input wicket:id="materiaSeleccionada.anioCursada" type="text">
+									</td>
+									<td>
+										<label>Final Aprobado</label>
+									</td>
+									<td>
+										<input wicket:id="materiaSeleccionada.finalAprobado" type="checkbox"/>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="1">
+										<label>Profesor de cursada: </label>
+									</td>
+									<td colspan="3">
+					            		<input wicket:id="materiaSeleccionada.profesor" type="text">
+									</td>
+								</tr>
+								<tr>
+									<td colspan="1">
+										<label>Ubicación materia: </label>
+									</td>
+									<td colspan="3">
+					            		<select>
+							              	<option>1er Cuatrimestre - Nivel 1</option>
+							              	<option>2do Cuatrimestre - Nivel 1</option>
+							              	<option>1er Cuatrimestre - Nivel 2</option>
+							              	<option>2do Cuatrimestre - Nivel 2</option>
+							              	<option>1er Cuatrimestre - Nivel 3</option>
+							              	<option>2do Cuatrimestre - Nivel 3</option>
+							              	<option>1er Cuatrimestre - Nivel 4</option>
+							              	<option>2do Cuatrimestre - Nivel 4</option>
+							              	<option>1er Cuatrimestre - Nivel 5</option>
+							              	<option>2do Cuatrimestre - Nivel 5</option>
+							            </select>
+									</td>
+								</tr>
+							</table>
+		       			</td>
+		   			</tr>
+		   			<tr>
+		   				<td>&nbsp;</td>
+		   				<td>
+		   					<table class="table table-striped table-bordered table-condensed" style="width: 100%">
+								<thead>
+					           		<tr>
+					               		<th id="main">Fecha</th>
+					               		<th id="main">Descripción</th>
+					               		<th id="main">Aprobado</th>
+					               	</tr>
+				            	</thead>
+								<tbody>
+					               	<tr>
+					                   	<td>
+					                   	    <span >unaFecha</span> 
+					               	    </td>
+					               	    <td>
+					                   	    <span >unaDescripcion</span> 
+					               	    </td> 
+					               	    <td>
+					                   	    <span>aprobado</span> 
+					               	    </td>  
+					               	</tr>
+				               	</tbody>
+							</table>
+							<div class="form-actions" align="center" style="width: 100%">
+				                <button class="btn" style="width: 100px">Editar Nota</button>&nbsp;
+				                <button class="btn" style="width: 100px">+</button>&nbsp;
+				                <button class="btn" style="width: 100px">-</button>&nbsp;
+				            </div>
+		   				</td>
+		   			</tr>
+				</table>		
+			</form>
+		</div>
 		
 	</body>
 </html>

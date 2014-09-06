@@ -1,43 +1,50 @@
 package home;
 
 import domain.Materia;
-import domain.Nota;
-import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.collections15.Predicate;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.uqbar.commons.model.CollectionBasedHome;
+import org.uqbar.commons.utils.Observable;
 
+@Observable
 @SuppressWarnings("all")
-public class HomeMaterias {
-  private static ArrayList<Materia> materias;
-  
-  public ArrayList<Materia> getMaterias() {
-    return HomeMaterias.materias;
+public class HomeMaterias extends CollectionBasedHome<Materia> {
+  public HomeMaterias() {
+    this.init();
   }
   
-  public void addMateria(final String nombre, final int anio_cursada, final String profesor, final boolean final_aprobado, final String ubicacion) {
-    Materia materia = new Materia();
+  public void init() {
+    this.create("Matemática Discreta", 2012, "Pepe", Boolean.valueOf(true));
+    this.create("Análisis Matemático I", 2013, "Juan", Boolean.valueOf(false));
+    this.create("Álgebra", 2014, "Jose", Boolean.valueOf(true));
+  }
+  
+  public void create(final String nombre, final int anioCursada, final String profesor, final Boolean finalAprobado) {
+    Materia _materia = new Materia();
+    Materia materia = _materia;
     materia.setNombre(nombre);
-    materia.setAnio_cursada(anio_cursada);
+    materia.setAnioCursada(anioCursada);
     materia.setProfesor(profesor);
-    materia.setFinal_aprobado(final_aprobado);
-    materia.setUbicacion(ubicacion);
-    ArrayList<Nota> _arrayList = new ArrayList<Nota>();
-    materia.setNotas(_arrayList);
-    HomeMaterias.materias.add(materia);
+    materia.setFinalAprobado(finalAprobado);
+    this.create(materia);
   }
   
-  public void addMateria(final Materia materia) {
-    HomeMaterias.materias.add(materia);
+  public Predicate getCriterio(final Materia example) {
+    return null;
   }
   
-  public Materia addMateriaDefault(final String nombre) {
-    Materia materia = new Materia();
-    materia.setNombre(nombre);
-    materia.setAnio_cursada(0);
-    materia.setFinal_aprobado(false);
-    materia.setProfesor("nadie");
-    materia.setUbicacion("?");
-    ArrayList<Nota> _arrayList = new ArrayList<Nota>();
-    materia.setNotas(_arrayList);
-    this.addMateria(materia);
-    return materia;
+  public Materia createExample() {
+    Materia _materia = new Materia();
+    return _materia;
+  }
+  
+  public Class<Materia> getEntityType() {
+    return Materia.class;
+  }
+  
+  public List<Materia> refresh() {
+    List<Materia> _allInstances = this.allInstances();
+    return IterableExtensions.<Materia>toList(_allInstances);
   }
 }
