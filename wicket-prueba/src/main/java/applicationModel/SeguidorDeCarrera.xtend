@@ -13,7 +13,7 @@ class SeguidorDeCarrera implements Serializable
 	@Property List<Materia> materias;
 	@Property Materia materiaSeleccionada;
 	@Property List<String> ubicaciones;
-//	@Property String nombreNuevaMateria;
+
 	
 	def HomeMaterias getHomeMaterias() {
 		ApplicationContext::instance.getSingleton(typeof(Materia))
@@ -22,7 +22,7 @@ class SeguidorDeCarrera implements Serializable
 	def refresh(){
 		this.materias = getHomeMaterias().refresh()
 		this.materiaSeleccionada = this.materias.get(0)
-		//this.materiaSeleccionada = null
+
 	}
 	
 	def seleccionarMateria(Materia materia){

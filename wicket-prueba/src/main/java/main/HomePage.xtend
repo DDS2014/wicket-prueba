@@ -1,16 +1,18 @@
 package main
 
-import org.apache.wicket.markup.html.WebPage
-import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
-import applicationModel.SeguidorDeCarrera
-import org.apache.wicket.markup.html.form.Form
-import org.apache.wicket.model.CompoundPropertyModel
-import org.uqbar.wicket.xtend.XListView
-import org.apache.wicket.markup.html.basic.Label
-import org.uqbar.wicket.xtend.XButton
-import org.apache.wicket.markup.html.form.TextField
-import org.apache.wicket.markup.html.form.CheckBox
 import applicationModel.NuevaMateria
+import applicationModel.SeguidorDeCarrera
+import domain.Materia
+import org.apache.wicket.markup.html.WebPage
+import org.apache.wicket.markup.html.basic.Label
+import org.apache.wicket.markup.html.form.CheckBox
+import org.apache.wicket.markup.html.form.DropDownChoice
+import org.apache.wicket.markup.html.form.Form
+import org.apache.wicket.markup.html.form.TextField
+import org.apache.wicket.model.CompoundPropertyModel
+import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.uqbar.wicket.xtend.XButton
+import org.uqbar.wicket.xtend.XListView
 
 /**
  * 
@@ -72,6 +74,11 @@ class HomePage extends WebPage {
 		parent.addChild(new Label("materiaSeleccionada.nombre"))
 		parent.addChild(new TextField<String>("materiaSeleccionada.anioCursada"))
 		parent.addChild(new TextField<String>("materiaSeleccionada.profesor"))
+		parent.addChild(new DropDownChoice<String>("materiaSeleccionada.ubicacion") =>
+			[
+				//FIXME che y cómo se agregan las choices????
+			]
+		)
 		parent.addChild(new CheckBox("materiaSeleccionada.finalAprobado"))
 	}
 }

@@ -21,8 +21,7 @@ public class HomeMaterias extends CollectionBasedHome<Materia> {
   }
   
   public void create(final String nombre, final int anioCursada, final String profesor, final Boolean finalAprobado) {
-    Materia _materia = new Materia();
-    Materia materia = _materia;
+    Materia materia = new Materia();
     materia.setNombre(nombre);
     materia.setAnioCursada(anioCursada);
     materia.setProfesor(profesor);
@@ -35,8 +34,7 @@ public class HomeMaterias extends CollectionBasedHome<Materia> {
   }
   
   public Materia createExample() {
-    Materia _materia = new Materia();
-    return _materia;
+    return new Materia();
   }
   
   public Class<Materia> getEntityType() {

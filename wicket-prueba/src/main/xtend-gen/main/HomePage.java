@@ -8,11 +8,13 @@ import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.CheckBox;
+import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods;
@@ -122,6 +124,13 @@ public class HomePage extends WebPage {
       this._wicketExtensionFactoryMethods.addChild(parent, _textField);
       TextField<String> _textField_1 = new TextField<String>("materiaSeleccionada.profesor");
       this._wicketExtensionFactoryMethods.addChild(parent, _textField_1);
+      DropDownChoice<String> _dropDownChoice = new DropDownChoice<String>("materiaSeleccionada.ubicacion");
+      final Procedure1<DropDownChoice<String>> _function = new Procedure1<DropDownChoice<String>>() {
+        public void apply(final DropDownChoice<String> it) {
+        }
+      };
+      DropDownChoice<String> _doubleArrow = ObjectExtensions.<DropDownChoice<String>>operator_doubleArrow(_dropDownChoice, _function);
+      this._wicketExtensionFactoryMethods.addChild(parent, _doubleArrow);
       CheckBox _checkBox = new CheckBox("materiaSeleccionada.finalAprobado");
       _xblockexpression = this._wicketExtensionFactoryMethods.addChild(parent, _checkBox);
     }
