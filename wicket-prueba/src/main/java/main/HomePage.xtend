@@ -69,6 +69,7 @@ class HomePage extends WebPage {
 	}
 	
 	def agregarEditarMateria(Form<SeguidorDeCarrera> parent){
+		parent.addChild(new Label("materiaSeleccionada.nombre"))
 		parent.addChild(new TextField<String>("materiaSeleccionada.anioCursada"))
 		parent.addChild(new TextField<String>("materiaSeleccionada.profesor"))
 		parent.addChild(new CheckBox("materiaSeleccionada.finalAprobado"))

@@ -116,6 +116,8 @@ public class HomePage extends WebPage {
   public MarkupContainer agregarEditarMateria(final Form<SeguidorDeCarrera> parent) {
     MarkupContainer _xblockexpression = null;
     {
+      Label _label = new Label("materiaSeleccionada.nombre");
+      this._wicketExtensionFactoryMethods.addChild(parent, _label);
       TextField<String> _textField = new TextField<String>("materiaSeleccionada.anioCursada");
       this._wicketExtensionFactoryMethods.addChild(parent, _textField);
       TextField<String> _textField_1 = new TextField<String>("materiaSeleccionada.profesor");
