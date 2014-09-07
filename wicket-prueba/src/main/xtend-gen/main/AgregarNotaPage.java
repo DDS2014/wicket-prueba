@@ -15,8 +15,6 @@ public class AgregarNotaPage extends WebPage {
   
   private final HomePage mainPage;
   
-  private boolean alta;
-  
   public AgregarNotaPage(final HomePage mainPage, final Nota nota) {
     this.mainPage = mainPage;
     CompoundPropertyModel<Nota> _compoundPropertyModel = new CompoundPropertyModel<Nota>(nota);

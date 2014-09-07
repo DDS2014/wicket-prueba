@@ -1,5 +1,7 @@
 package domain;
 
+import domain.Nota;
+import java.util.ArrayList;
 import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.utils.Observable;
 
@@ -54,5 +56,15 @@ public class Materia extends Entity {
   
   public void setUbicacion(final String ubicacion) {
     this._ubicacion = ubicacion;
+  }
+  
+  private ArrayList<Nota> _notas;
+  
+  public ArrayList<Nota> getNotas() {
+    return this._notas;
+  }
+  
+  public void setNotas(final ArrayList<Nota> notas) {
+    this._notas = notas;
   }
 }

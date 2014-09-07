@@ -1,6 +1,8 @@
 package home;
 
 import domain.Materia;
+import domain.Nota;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.collections15.Predicate;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -34,7 +36,10 @@ public class HomeMaterias extends CollectionBasedHome<Materia> {
   }
   
   public Materia createExample() {
-    return new Materia();
+    Materia materia = new Materia();
+    ArrayList<Nota> _arrayList = new ArrayList<Nota>();
+    materia.setNotas(_arrayList);
+    return materia;
   }
   
   public Class<Materia> getEntityType() {

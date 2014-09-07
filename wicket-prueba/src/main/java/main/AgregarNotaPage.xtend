@@ -11,7 +11,7 @@ class AgregarNotaPage extends WebPage
 {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 	private final HomePage mainPage
-	boolean alta
+
 	
 	new(HomePage mainPage, Nota nota) 
 	{

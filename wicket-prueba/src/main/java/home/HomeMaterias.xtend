@@ -3,6 +3,7 @@ package home
 import domain.Materia
 import org.uqbar.commons.model.CollectionBasedHome
 import org.uqbar.commons.utils.Observable
+import java.util.ArrayList
 
 @Observable
 class HomeMaterias extends CollectionBasedHome<Materia>
@@ -31,7 +32,9 @@ class HomeMaterias extends CollectionBasedHome<Materia>
 	}
 	
 	override def createExample() {
-		new Materia
+		var materia = new Materia
+		materia.notas = new ArrayList()
+		return materia
 	}
 	
 	override def getEntityType() {
