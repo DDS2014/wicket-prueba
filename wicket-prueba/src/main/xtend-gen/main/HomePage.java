@@ -1,9 +1,12 @@
 package main;
 
 import applicationModel.NuevaMateria;
+import applicationModel.NuevaNota;
 import applicationModel.SeguidorDeCarrera;
 import domain.Materia;
+import domain.Nota;
 import main.AgregarMateriaPage;
+import main.AgregarNotaPage;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -48,6 +51,7 @@ public class HomePage extends WebPage {
     CompoundPropertyModel<SeguidorDeCarrera> _compoundPropertyModel = new CompoundPropertyModel<SeguidorDeCarrera>(_seguidor_1);
     final Form<SeguidorDeCarrera> materiasForm = new Form<SeguidorDeCarrera>("materiasForm", _compoundPropertyModel);
     this.agregarGrillaMaterias(materiasForm);
+    this.agregarGrillaNotas(materiasForm);
     this.agregarAccionesMateria(materiasForm);
     this.agregarEditarMateria(materiasForm);
     this.agregarFormNotas(materiasForm);
@@ -113,6 +117,62 @@ public class HomePage extends WebPage {
       _xblockexpression = this._wicketExtensionFactoryMethods.addChild(parent, listView);
     }
     return _xblockexpression;
+  }
+  
+  public MarkupContainer agregarGrillaNotas(final Form<SeguidorDeCarrera> form) {
+    MarkupContainer _xblockexpression = null;
+    {
+      XListView<Nota> listNotas = new XListView<Nota>("materiaSeleccionada.notas");
+      final Procedure1<ListItem<Nota>> _function = new Procedure1<ListItem<Nota>>() {
+        public void apply(final ListItem<Nota> item) {
+          Nota _modelObject = item.getModelObject();
+          CompoundPropertyModel<Nota> _asCompoundModel = HomePage.this._wicketExtensionFactoryMethods.<Nota>asCompoundModel(_modelObject);
+          item.setModel(_asCompoundModel);
+          Label _label = new Label("fecha");
+          HomePage.this._wicketExtensionFactoryMethods.addChild(item, _label);
+          Label _label_1 = new Label("descripcion");
+          HomePage.this._wicketExtensionFactoryMethods.addChild(item, _label_1);
+          Label _label_2 = new Label("aprobado");
+          HomePage.this._wicketExtensionFactoryMethods.addChild(item, _label_2);
+          XButton _xButton = new XButton("editarNota");
+          final Procedure0 _function = new Procedure0() {
+            public void apply() {
+              Nota _modelObject = item.getModelObject();
+              HomePage.this.editarNota(_modelObject);
+            }
+          };
+          XButton _setOnClick = _xButton.setOnClick(_function);
+          HomePage.this._wicketExtensionFactoryMethods.addChild(item, _setOnClick);
+        }
+      };
+      listNotas.setPopulateItem(_function);
+      XButton _xButton = new XButton("agregarNota");
+      final Procedure0 _function_1 = new Procedure0() {
+        public void apply() {
+          HomePage.this.agregarNota();
+        }
+      };
+      XButton _setOnClick = _xButton.setOnClick(_function_1);
+      this._wicketExtensionFactoryMethods.addChild(form, _setOnClick);
+      _xblockexpression = this._wicketExtensionFactoryMethods.addChild(form, listNotas);
+    }
+    return _xblockexpression;
+  }
+  
+  public void agregarNota() {
+    SeguidorDeCarrera _seguidor = this.getSeguidor();
+    NuevaNota _nuevaNota = new NuevaNota(_seguidor);
+    AgregarNotaPage _agregarNotaPage = new AgregarNotaPage(this, _nuevaNota);
+    this.setResponsePage(_agregarNotaPage);
+    SeguidorDeCarrera _seguidor_1 = this.getSeguidor();
+    _seguidor_1.refresh();
+  }
+  
+  public void editarNota(final Nota nota) {
+    AgregarNotaPage _agregarNotaPage = new AgregarNotaPage(this, nota);
+    this.setResponsePage(_agregarNotaPage);
+    SeguidorDeCarrera _seguidor = this.getSeguidor();
+    _seguidor.refresh();
   }
   
   public MarkupContainer agregarEditarMateria(final Form<SeguidorDeCarrera> parent) {

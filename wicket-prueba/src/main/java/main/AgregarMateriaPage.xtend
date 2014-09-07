@@ -34,7 +34,7 @@ class AgregarMateriaPage extends WebPage
 		materiaForm.addChild(botonAceptar)
 
 		this.addChild(materiaForm)
-		// TODO Add your page's components here
+
     }
 	
 	def aceptar() 

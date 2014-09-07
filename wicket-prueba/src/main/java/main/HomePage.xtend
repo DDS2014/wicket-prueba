@@ -12,6 +12,8 @@ import org.apache.wicket.model.CompoundPropertyModel
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
+import domain.Nota
+import applicationModel.NuevaNota
 
 /**
  * 
@@ -30,12 +32,14 @@ class HomePage extends WebPage {
 		val Form<SeguidorDeCarrera> materiasForm = new Form<SeguidorDeCarrera>("materiasForm", new CompoundPropertyModel<SeguidorDeCarrera>(this.seguidor))
 		
 		this.agregarGrillaMaterias(materiasForm)
+		this.agregarGrillaNotas(materiasForm)
 		this.agregarAccionesMateria(materiasForm)
 		this.agregarEditarMateria(materiasForm)
 		this.agregarFormNotas(materiasForm)
 		
 		this.addChild(materiasForm)
     }
+	
 	
 	def agregarAccionesMateria(Form<SeguidorDeCarrera> parent) 
 	{
@@ -67,6 +71,34 @@ class HomePage extends WebPage {
 		]
 		
 		parent.addChild(listView)
+	}
+	
+	def agregarGrillaNotas(Form<SeguidorDeCarrera> form) 
+	{
+		var listNotas = new XListView("materiaSeleccionada.notas")
+		
+		listNotas.populateItem = [ item |
+			item.model = item.modelObject.asCompoundModel
+			item.addChild(new Label("fecha"))
+			item.addChild(new Label("descripcion"))
+			item.addChild(new Label("aprobado"))	//FIXME convertir esto en un formato legible
+			item.addChild(new XButton("editarNota").onClick = [|this.editarNota(item.modelObject)])
+		]	
+		
+		form.addChild(new XButton("agregarNota").onClick = [|this.agregarNota()])
+		form.addChild(listNotas)		
+	}
+	
+	def agregarNota()
+	{
+		responsePage = new AgregarNotaPage(this, new NuevaNota(seguidor));
+		this.seguidor.refresh()
+	}
+	
+	def editarNota(Nota nota) 
+	{
+		responsePage = new AgregarNotaPage(this, nota);
+		this.seguidor.refresh()
 	}
 	
 	def agregarEditarMateria(Form<SeguidorDeCarrera> parent){

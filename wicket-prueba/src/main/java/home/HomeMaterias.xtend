@@ -24,6 +24,7 @@ class HomeMaterias extends CollectionBasedHome<Materia>
 		materia.anioCursada = anioCursada
 		materia.profesor = profesor
 		materia.finalAprobado = finalAprobado
+		materia.notas = new ArrayList()
 		this.create(materia)
 	}
 

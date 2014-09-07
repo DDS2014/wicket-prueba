@@ -7,6 +7,7 @@ import java.util.List
 import java.io.Serializable
 import domain.Materia
 
+
 @org.uqbar.commons.utils.Observable
 class SeguidorDeCarrera implements Serializable
 {
@@ -33,6 +34,7 @@ class SeguidorDeCarrera implements Serializable
 	{
 		var materia = getHomeMaterias().createExample()
 		materia.nombre = nombre
+//		materia.notas.add(new Nota())
 		getHomeMaterias.create(materia)
 	}
 

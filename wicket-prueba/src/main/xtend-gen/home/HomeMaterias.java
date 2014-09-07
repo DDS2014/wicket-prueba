@@ -28,6 +28,8 @@ public class HomeMaterias extends CollectionBasedHome<Materia> {
     materia.setAnioCursada(anioCursada);
     materia.setProfesor(profesor);
     materia.setFinalAprobado(finalAprobado);
+    ArrayList<Nota> _arrayList = new ArrayList<Nota>();
+    materia.setNotas(_arrayList);
     this.create(materia);
   }
   

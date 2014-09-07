@@ -110,23 +110,29 @@
 					               	</tr>
 				            	</thead>
 								<tbody>
-					               	<tr>
+					               	<tr wicket:id="materiaSeleccionada.notas">
 					                   	<td>
-					                   	    <span >unaFecha</span> 
+					                   	    <span wicket:id="fecha">unaFecha</span> 
 					               	    </td>
 					               	    <td>
-					                   	    <span >unaDescripcion</span> 
+					                   	    <span wicket:id="descripcion">unaDescripcion</span> 
 					               	    </td> 
 					               	    <td>
-					                   	    <span>aprobado</span> 
-					               	    </td>  
+					                   	    <span wicket:id="aprobado">aprobado</span> 
+					               	    </td>
+					               	    <td>
+					               	    	<button wicket:id="editarNota">Editar</button>
+					               	    </td>
+					               	    <td>
+					               	    	<button>-</button>
+					               	    </td>
 					               	</tr>
 				               	</tbody>
 							</table>
 							<div class="form-actions" align="center" style="width: 100%">
-				                <button class="btn" style="width: 100px">Editar Nota</button>&nbsp;
-				                <button class="btn" style="width: 100px">+</button>&nbsp;
-				                <button class="btn" style="width: 100px">-</button>&nbsp;
+				                <!-- button class="btn" style="width: 100px">Editar Nota</button-->&nbsp;
+				                <button wicket:id="agregarNota"class="btn" style="width: 100px">+</button>&nbsp;
+				                <!--button class="btn" style="width: 100px">-</button-->&nbsp;
 				            </div>
 		   				</td>
 		   			</tr>

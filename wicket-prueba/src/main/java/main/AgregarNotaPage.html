@@ -18,20 +18,20 @@
 	            </tr>
 	        </table>
 	        
-	        <form class="form-horizontal" style="width: 100%">
+	        <form wicket:id="notaForm" class="form-horizontal" style="width: 100%">
 		    
 		    
 		    <label>Fecha: </label>
-		    <input/>
+		    <input wicket:id="fecha"/>
 		    <br>
 		    <label>Descripcion: </label>
-		    <input/>
+		    <input wicket:id="descripcion"/>
 		    <br>
 		    <label>Aprobado</label>
-		    <input type="checkbox"/>
+		    <input wicket:id="aprobado" type="checkbox"/>
 		    <br>
-		    <button>Aceptar</button>
-		    <button>Volver</button>
+		    <button wicket:id="botonAceptar">Aceptar</button>
+		    <button wicket:id="botonVolver">Volver</button>
 
 		    </form>
 		</div>
