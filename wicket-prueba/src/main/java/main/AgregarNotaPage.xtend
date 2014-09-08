@@ -1,14 +1,15 @@
 package main
 
-import org.apache.wicket.markup.html.WebPage
-import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import applicationModel.NuevaNota
 import domain.Nota
-import org.apache.wicket.model.CompoundPropertyModel
+import org.apache.wicket.markup.html.WebPage
+import org.apache.wicket.markup.html.basic.Label
+import org.apache.wicket.markup.html.form.CheckBox
 import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.markup.html.form.TextField
-import org.apache.wicket.markup.html.form.CheckBox
+import org.apache.wicket.model.CompoundPropertyModel
+import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
-import applicationModel.NuevaNota
 
 class AgregarNotaPage extends WebPage 
 
@@ -24,8 +25,11 @@ class AgregarNotaPage extends WebPage
 	{
 		this.nota = nota
 		this.mainPage = mainPage	
+		
+		this.addChild(new Label("titulo", if (this.alta) "Agregar Nota" else "Modificar Nota"))
+		
 		var notaForm = new Form<Nota>("notaForm", new CompoundPropertyModel<Nota>(nota))
-		//todo quiero que diga agregar cuando sea una alta, y modificar cuando no
+		
 		this.addChild(notaForm)
 		
 		notaForm.addChild(new TextField("descripcion"))

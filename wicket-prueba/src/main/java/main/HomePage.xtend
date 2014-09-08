@@ -81,12 +81,23 @@ class HomePage extends WebPage {
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("fecha"))
 			item.addChild(new Label("descripcion"))
-			item.addChild(new Label("aprobado"))	//FIXME convertir esto en un formato legible
+			item.addChild(new Label("aprobado",convertirAprobacion(item.modelObject)))	//se lee :D
 			item.addChild(new XButton("editarNota").onClick = [|this.editarNota(item.modelObject)])
+			item.addChild(new XButton("borrarNota").onClick = [|this.borrarNota(item.modelObject)])
 		]	
 		
 		form.addChild(new XButton("agregarNota").onClick = [|this.agregarNota()])
 		form.addChild(listNotas)		
+	}
+	
+	def borrarNota(Nota nota) {
+		seguidor.materiaSeleccionada.notas.remove(nota)
+		this.seguidor.refresh()
+	}
+	
+	def convertirAprobacion(Nota nota){
+		if(nota.aprobado)
+		return "Si" else "No"
 	}
 	
 	def agregarNota()
