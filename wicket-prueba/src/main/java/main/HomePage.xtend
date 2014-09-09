@@ -51,7 +51,7 @@ class HomePage extends WebPage {
 	def agregarMateria() 
 	{
 		responsePage = new AgregarMateriaPage(this, new NuevaMateria(this.seguidor));
-		this.seguidor.refresh()
+//		this.seguidor.refresh()   //esto se ejecuta antes de pasar a la otra página, este era el problema con las notas que siempre se agregaban en la primera materia
 	}
 	
 	def agregarFormNotas(Form<SeguidorDeCarrera> parent) {
@@ -103,13 +103,13 @@ class HomePage extends WebPage {
 	def agregarNota()
 	{
 		responsePage = new AgregarNotaPage(this, new NuevaNota(seguidor));
-		this.seguidor.refresh()
+//		this.seguidor.refresh()
 	}
 	
 	def editarNota(Nota nota) 
 	{
 		responsePage = new AgregarNotaPage(this, nota);
-		this.seguidor.refresh()
+//		this.seguidor.refresh()
 	}
 	
 	def agregarEditarMateria(Form<SeguidorDeCarrera> parent){
