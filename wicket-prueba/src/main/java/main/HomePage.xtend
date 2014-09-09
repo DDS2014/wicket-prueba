@@ -14,6 +14,7 @@ import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
 import domain.Nota
 import applicationModel.NuevaNota
+import java.util.ArrayList
 
 /**
  * 
@@ -118,10 +119,37 @@ class HomePage extends WebPage {
 		parent.addChild(new TextField<String>("materiaSeleccionada.profesor"))
 		parent.addChild(new DropDownChoice<String>("materiaSeleccionada.ubicacion") =>
 			[
-				//FIXME che y cómo se agregan las choices????
+				choices = this.getUbicaciones //FIXME che y cómo se agregan las choices????
 			]
 		)
 		parent.addChild(new CheckBox("materiaSeleccionada.finalAprobado"))
 	}
+	
+def getUbicaciones(){
+	var ubicaciones = new ArrayList<String>
+	ubicaciones.add("1er Cuatrimestre - Nivel 1")
+	ubicaciones.add("2do Cuatrimestre - Nivel 1")
+	ubicaciones.add("1er Cuatrimestre - Nivel 2")
+	ubicaciones.add("2do Cuatrimestre - Nivel 2")
+	ubicaciones.add("1er Cuatrimestre - Nivel 3")
+	ubicaciones.add("2do Cuatrimestre - Nivel 3")
+	ubicaciones.add("1er Cuatrimestre - Nivel 4")
+	ubicaciones.add("2do Cuatrimestre - Nivel 4")
+	ubicaciones.add("1er Cuatrimestre - Nivel 5")
+	ubicaciones.add("2do Cuatrimestre - Nivel 5")
+	return ubicaciones
+	}
+//"1er Cuatrimestre - Nivel 1",
+//"2do Cuatrimestre - Nivel 1",
+//"1er Cuatrimestre - Nivel 2",
+//"2do Cuatrimestre - Nivel 2",
+//"1er Cuatrimestre - Nivel 3",
+//"2do Cuatrimestre - Nivel 3",
+//"1er Cuatrimestre - Nivel 4",
+//"2do Cuatrimestre - Nivel 4",
+//"1er Cuatrimestre - Nivel 5",
+//"2do Cuatrimestre - Nivel 5"
 }
+
+
 
