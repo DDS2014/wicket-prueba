@@ -1,13 +1,14 @@
 package main
 
-
+import applicationModel.NuevaMateria
 import org.apache.wicket.markup.html.WebPage
+import org.apache.wicket.markup.html.form.Form
+import org.apache.wicket.markup.html.form.TextField
+import org.apache.wicket.model.CompoundPropertyModel
+import org.uqbar.wicket.xtend.PropertyValidator
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
-import org.apache.wicket.markup.html.form.Form
-import org.apache.wicket.model.CompoundPropertyModel
-import applicationModel.NuevaMateria
-import org.apache.wicket.markup.html.form.TextField
+import org.apache.wicket.markup.html.panel.FeedbackPanel
 
 class AgregarMateriaPage extends WebPage 
 
@@ -26,10 +27,13 @@ class AgregarMateriaPage extends WebPage
 		var botonAceptar = new XButton("botonAceptar")
 		botonAceptar.onClick = [|aceptar]
 		
+		var nombreMateriaField = new TextField<String>("nombre")
+		nombreMateriaField.add(new PropertyValidator) //para validacion
+		
 		var materiaForm = new Form<NuevaMateria> ("materiaForm", new CompoundPropertyModel<NuevaMateria>(nuevaMateria))		
 		
-	
-		materiaForm.addChild(new TextField<String>("nombre"))
+		materiaForm.addChild(new FeedbackPanel("feedbackPanel"))
+		materiaForm.addChild(nombreMateriaField)
 		materiaForm.addChild(botonVolver)
 		materiaForm.addChild(botonAceptar)
 

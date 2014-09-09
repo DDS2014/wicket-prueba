@@ -118,10 +118,7 @@ class HomePage extends WebPage {
 		parent.addChild(new TextField<String>("materiaSeleccionada.anioCursada"))
 		parent.addChild(new TextField<String>("materiaSeleccionada.profesor"))
 		parent.addChild(new DropDownChoice<String>("materiaSeleccionada.ubicacion") =>
-			[
-				choices = this.getUbicaciones //FIXME che y cómo se agregan las choices????
-			]
-		)
+			[choices = this.getUbicaciones]) //FIXME cambiar el getUbicaciones de lugar (no tendria que estar en esta clase)
 		parent.addChild(new CheckBox("materiaSeleccionada.finalAprobado"))
 	}
 	
@@ -139,16 +136,7 @@ def getUbicaciones(){
 	ubicaciones.add("2do Cuatrimestre - Nivel 5")
 	return ubicaciones
 	}
-//"1er Cuatrimestre - Nivel 1",
-//"2do Cuatrimestre - Nivel 1",
-//"1er Cuatrimestre - Nivel 2",
-//"2do Cuatrimestre - Nivel 2",
-//"1er Cuatrimestre - Nivel 3",
-//"2do Cuatrimestre - Nivel 3",
-//"1er Cuatrimestre - Nivel 4",
-//"2do Cuatrimestre - Nivel 4",
-//"1er Cuatrimestre - Nivel 5",
-//"2do Cuatrimestre - Nivel 5"
+
 }
 
 

@@ -15,13 +15,13 @@ class NuevaMateria implements Serializable
 	
 	def agregarse()
 	{
-		this.validarse()
+		this.validarNombre(nombre)
 		seguidor.crearMateriaDefault(nombre);
 	}
 	
-	def validarse() 
+	def void validarNombre(String nombre) 
 	{
-		if ((this.nombre == "") || (this.nombre == null))
+		if (nombre == null)
 		{
 			throw new UserException("Debe especificar un nombre de materia.")
 		}

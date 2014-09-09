@@ -10,6 +10,8 @@ import org.apache.wicket.markup.html.form.TextField
 import org.apache.wicket.model.CompoundPropertyModel
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
+import org.apache.wicket.markup.html.panel.FeedbackPanel
+import org.uqbar.wicket.xtend.PropertyValidator
 
 class AgregarNotaPage extends WebPage 
 
@@ -32,8 +34,14 @@ class AgregarNotaPage extends WebPage
 		
 		this.addChild(notaForm)
 		
-		notaForm.addChild(new TextField("descripcion"))
-		notaForm.addChild(new TextField("fecha"))
+		var campoDescripcion = new TextField("descripcion")
+		var campoFecha = new TextField("fecha")
+		
+		campoDescripcion.add(new PropertyValidator) //esto es para las validaciones
+		campoFecha.add(new PropertyValidator)
+		
+		notaForm.addChild(campoDescripcion)
+		notaForm.addChild(campoFecha)
 		notaForm.addChild(new CheckBox("aprobado"))
 	
 		var botonVolver = new XButton("botonVolver")
@@ -44,10 +52,14 @@ class AgregarNotaPage extends WebPage
 		
 		notaForm.addChild(botonVolver)
 		notaForm.addChild(botonAceptar)
+		notaForm.addChild(new FeedbackPanel("feedbackPanel"))
 	}
 	
 	def aceptar() 
 	{
+		nota.validarDescripcion(nota.descripcion)
+		nota.validarFecha(nota.fecha)
+		
 		if(this.alta)
 		{
 			nuevaNota.agregarse()
