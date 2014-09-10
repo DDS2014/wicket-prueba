@@ -12,6 +12,7 @@ import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
 import org.apache.wicket.markup.html.panel.FeedbackPanel
 import org.uqbar.wicket.xtend.PropertyValidator
+import java.util.Date
 
 class AgregarNotaPage extends WebPage 
 
@@ -21,7 +22,9 @@ class AgregarNotaPage extends WebPage
 	boolean alta;
 	Nota nota;
 	NuevaNota nuevaNota;
-
+	private final Date oFecha
+	private final String oDescripcion
+	private final Boolean oAprobado
 	
 	def init(HomePage mainPage, Nota nota)
 	{
@@ -64,11 +67,14 @@ class AgregarNotaPage extends WebPage
 		{
 			nuevaNota.agregarse()
 		}
-		volver
+		responsePage = mainPage
 	}
 	
 	def volver() 
 	{
+		nota.fecha = this.oFecha 
+		nota.descripcion = this.oDescripcion 
+		nota.aprobado = this.oAprobado 
 		responsePage = mainPage
 	}
 	
@@ -77,6 +83,9 @@ class AgregarNotaPage extends WebPage
 	{
 		this.alta = true;
 		this.nuevaNota = nuevaNota
+		this.oFecha = nuevaNota.nota.fecha
+		this.oDescripcion = nuevaNota.nota.descripcion
+		this.oAprobado = nuevaNota.nota.aprobado
 		this.init(mainPage, nuevaNota.nota)
 		
 	}
@@ -84,6 +93,9 @@ class AgregarNotaPage extends WebPage
 	new(HomePage mainPage, Nota nota) 
 	{
 		this.alta = false;
+		this.oFecha = nota.fecha
+		this.oDescripcion = nota.descripcion
+		this.oAprobado = nota.aprobado
 		this.init(mainPage, nota)		
 	}
 	

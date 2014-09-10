@@ -43,7 +43,7 @@
 				               	</tbody>
 							</table>
 							<div class="form-actions">
-				                <button wicket:id="nuevaMateria" class="btn">Nueva Materia</button>
+				                <button wicket:id="nuevaMateria" class="btn btn-primary">Nueva Materia</button>
 				            </div>
 			        		
 		       			</td>
@@ -110,7 +110,7 @@
 					               	</tr>
 				            	</thead>
 								<tbody>
-					               	<tr wicket:id="materiaSeleccionada.notas">
+					               	<tr wicket:id="materiaSeleccionada.notas" valign="center">
 					                   	<td>
 					                   	    <span wicket:id="fecha">unaFecha</span> 
 					               	    </td>
@@ -120,19 +120,19 @@
 					               	    <td>
 					                   	    <span wicket:id="aprobado">aprobado</span> 
 					               	    </td>
-					               	    <td>
-					               	    	<button wicket:id="editarNota">Editar</button>
+					               	    <td align="center">
+					               	    	<button wicket:id="editarNota" class="btn" style="width: 75px">Editar</button>
 					               	    </td>
-					               	    <td>
-					               	    	<button wicket:id="borrarNota">-</button>
+					               	    <td align="center">
+					               	    	<button wicket:id="borrarNota" class="btn" style="width: 75px">-</button>
 					               	    </td>
 					               	</tr>
 				               	</tbody>
 							</table>
-							<div class="form-actions" align="center" style="width: 100%">
-				                <!-- button class="btn" style="width: 100px">Editar Nota</button-->&nbsp;
-				                <button wicket:id="agregarNota"class="btn" style="width: 100px">+</button>&nbsp;
-				                <!--button class="btn" style="width: 100px">-</button-->&nbsp;
+							<div class="form-actions" align="right" style="width: 100%">
+				                <!-- button class="btn" style="width: 100px">Editar Nota</button-->
+				                <button wicket:id="agregarNota"class="btn bt-success" style="width: 100px">+</button>
+				                <!--button class="btn" style="width: 100px">-</button&nbsp;-->
 				            </div>
 		   				</td>
 		   			</tr>
